@@ -1,8 +1,9 @@
 ﻿using DataAccess.Abstract;
-using Entity.Concrete;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete
@@ -13,9 +14,9 @@ namespace DataAccess.Concrete
         public InMemoryCarDal()
         {
             _cars = new List<Car> {
-                new Car{Id=1, BrandId=1, ColorId=1, ModelYear="2015", DailyPrice=100000, Description="Benzin-Düz Vites", Type="Sedan"},
-                new Car{Id=2, BrandId=2, ColorId=2, ModelYear="2016", DailyPrice=120000, Description="Benzin-Otomatik Vites", Type="Hatchback"},
-                new Car{Id=3, BrandId=3, ColorId=3, ModelYear="2017", DailyPrice=130000, Description="Dizel-Otomatik Vites", Type="Suv"},
+                new Car{Id=1, BrandId=1, ColorId=1, ModelYear=2015, DailyPrice=100000, Description="Benzin-Düz Vites", Type="Sedan"},
+                new Car{Id=2, BrandId=2, ColorId=2, ModelYear=2016, DailyPrice=120000, Description="Benzin-Otomatik Vites", Type="Hatchback"},
+                new Car{Id=3, BrandId=3, ColorId=3, ModelYear=2017, DailyPrice=130000, Description="Dizel-Otomatik Vites", Type="Suv"},
             };
         }
         public void Add(Car car)
@@ -27,11 +28,6 @@ namespace DataAccess.Concrete
         {
             Car carToDelete = _cars.SingleOrDefault(c=>c.Id == car.Id);
             _cars.Remove(carToDelete);
-        }
-
-        public List<Car> GetAll()
-        {
-            return _cars;
         }
 
         public List<Car> GetByColor(int colorId)
@@ -53,6 +49,16 @@ namespace DataAccess.Concrete
             carToUpdate.Description = car.Description;
             carToUpdate.ModelYear = car.ModelYear;
             carToUpdate.Type = car.Type;
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
     }
 }
