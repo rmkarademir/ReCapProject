@@ -54,7 +54,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetById(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.Id == id));
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.CarId == id));
         }
 
         public IDataResult<List<Car>> GetCarsByMoledYear(int min, int max)
