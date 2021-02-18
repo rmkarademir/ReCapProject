@@ -17,9 +17,12 @@ namespace ConsoleUI
             UserManager userManager = new UserManager(new EfUserDal());
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             
-            
-            TestRentalAdd(rentalManager);
-            
+            Color color1 = new Color {ColorId=1, ColorName="Mavi" };
+            colorManager.Add(color1);
+            colorManager.GetAll();
+
+            //TestRentalAdd(rentalManager);
+
             //var result = carManager.GetAll();
             //if (result.Success==true)
             //{
@@ -31,8 +34,8 @@ namespace ConsoleUI
             //    }
             //    Console.WriteLine(result.Message);
             //}
-            
-            
+
+
         }
         private static void TestRentalAdd(RentalManager rentalManager)
         {
@@ -43,7 +46,6 @@ namespace ConsoleUI
                 RentDate = new DateTime(2021, 2, 2, 19, 30, 00),
                 ReturnDate = new DateTime(2021, 2, 17, 19, 30, 00)
             };
-
             Console.WriteLine(rentalManager.Add(rental1).Message);
         }
     }

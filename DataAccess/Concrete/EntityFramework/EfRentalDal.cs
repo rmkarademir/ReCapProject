@@ -4,23 +4,25 @@ using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
     public class EfRentalDal : EfEntityRepositoryBase<Rental, RentContext>, IRentalDal
     {
-        public List<RentalDetailDto> GetRentalDetails()
+        public List<RentalDetailDto> GetRentalDetails(Expression<Func<Rental, bool>> filter = null)
         {
             using (RentContext context = new RentContext())
             {
-                var result = from r in context.Rentals
+                var result = from r in filter == null ? context.Rentals : context.Rentals.Where(filter)
                              join c in context.Cars on r.CarId equals c.CarId
                              join b in context.Brands on c.BrandId equals b.BrandId
                              join cu in context.Customers on r.CustomerId equals cu.CustomerId
                              join u in context.Users on cu.UserId equals u.UserId
                              select new RentalDetailDto { 
-                                 RentalId = r.RentalIdx, 
+                                 RentalId = r.RentalId, 
                                  BrandName = b.BrandName, 
                                  UserFirstName = u.FirstName,
                                  UserLastName = u.LastName,
