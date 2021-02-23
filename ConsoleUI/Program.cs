@@ -10,16 +10,18 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+
+
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             UserManager userManager = new UserManager(new EfUserDal());
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            
-            Color color1 = new Color {ColorId=1, ColorName="Mavi" };
-            colorManager.Add(color1);
-            colorManager.GetAll();
+
+            //Car car1 = new Car {CarId=1, DailyPrice=-5};
+            //carManager.Add(car1);
+            carManager.GetAll();
 
             //TestRentalAdd(rentalManager);
 

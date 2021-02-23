@@ -15,9 +15,9 @@ namespace DataAccess.Concrete
         public InMemoryCarDal()
         {
             _cars = new List<Car> {
-                new Car{CarId=1, BrandId=1, ColorId=1, ModelYear=2015, DailyPrice=100000, Description="Benzin-Düz Vites", Type="Sedan"},
-                new Car{CarId=2, BrandId=2, ColorId=2, ModelYear=2016, DailyPrice=120000, Description="Benzin-Otomatik Vites", Type="Hatchback"},
-                new Car{CarId=3, BrandId=3, ColorId=3, ModelYear=2017, DailyPrice=130000, Description="Dizel-Otomatik Vites", Type="Suv"},
+                new Car{CarId=1, BrandId=1, ColorId=1, ModelYear=2015, DailyPrice=100000, Description="Benzin-Düz Vites"},
+                new Car{CarId=2, BrandId=2, ColorId=2, ModelYear=2016, DailyPrice=120000, Description="Benzin-Otomatik Vites"},
+                new Car{CarId=3, BrandId=3, ColorId=3, ModelYear=2017, DailyPrice=130000, Description="Dizel-Otomatik Vites"},
             };
         }
         public void Add(Car car)
@@ -49,7 +49,6 @@ namespace DataAccess.Concrete
             carToUpdate.DailyPrice = car.DailyPrice;
             carToUpdate.Description = car.Description;
             carToUpdate.ModelYear = car.ModelYear;
-            carToUpdate.Type = car.Type;
         }
 
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
