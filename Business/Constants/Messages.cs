@@ -38,8 +38,10 @@ namespace Business.Constants
         public static string RentalsListed = "Kiralamalar listelendi.";
         public static string RentalError = "Kiralanmak istenen araç teslim edilmemiş.";
 
-
-
-
+        public static string CarImageAdded = "Arabanın fotoğrafı eklendi.";
+        public static string CarImageDeleted = "Arabanın fotoğrafı silindi.";
+        public static string CarImageUpdated = "Arabanın fotoğrafı güncellendi.";
+        public static string CarImagesListed = "Arabanın fotoğrafları listelendi.";
+        public static string CarImageLimitExceeded = "Bu araç için 5den fazla fotoğraf eklenemez";
     }
 }
