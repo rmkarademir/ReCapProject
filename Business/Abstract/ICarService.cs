@@ -19,5 +19,6 @@ namespace Business.Abstract
         IDataResult<List<Car>> GetCarsByColorId(int id);
         IDataResult<List<Car>> GetCarsByMoledYear(int min, int max);
         IDataResult<List<CarDetailDto>> GetCarDetails(Expression<Func<Car, bool>> filter = null);
+        IResult AddTransactionalTest(Car car);
     }
 }
